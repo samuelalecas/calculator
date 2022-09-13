@@ -1,6 +1,13 @@
 const operators = ["/", "*", "-", "+"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
+let lastValue = "";
+let operator = "";
+let currentValue = "";
+let screenValue = "";
+let numberIsTheResult, operatorIsAlreadyPressed = false;
+
+
 //? CALCULATOR BASIC FUNCTIONS
 function add(a, b) { return a + b; }
 function subtract(a, b) { return a - b; }
@@ -22,13 +29,6 @@ function operationSelector(operatorPressed) {
     }
 }
 
-let lastValue = "";
-let operator = "";
-let currentValue = "";
-let screenValue = "";
-let numberIsTheResult, operatorIsAlreadyPressed = false;
-
-
 //? DOM Implementation
 function refresh() {
     const screen = document.querySelector('#screen');
@@ -36,9 +36,16 @@ function refresh() {
 };
 
 function eraseOne() {
-    currentValue = currentValue.slice(0, -1);
-    screenValue = screenValue.slice(0, -1);
-    refresh();
+    if (currentValue.length <= 1) {
+        currentValue = "";
+        screenValue = "";
+        const screen = document.querySelector('#screen');
+        screen.textContent = 0;
+    } else {
+        currentValue = currentValue.slice(0, -1);
+        screenValue = screenValue.slice(0, -1);
+        refresh();
+    }
 }
 
 function eraseAll() {
@@ -194,6 +201,12 @@ window.addEventListener("keydown", (event) => {
             break;
         case "Enter":
             equalPressed();
+            break;
+        case "Escape":
+            eraseAll();
+            break;
+        case "Backspace":
+            eraseOne();
             break;
     }
 
