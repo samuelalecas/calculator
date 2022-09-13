@@ -1,17 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400&display=swap');
+
 * {
     box-sizing: border-box;
+    height: 100%;
     /* border: 1px solid red; */
 }
 
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 10px;
+    height: 360px;
+}
+
+.screen {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    width: 190px;
+    height: 60px;
+    margin-top: 30px;
+    padding: 20px;
+
+    border-radius: 6px;
+    background-color: rgb(196, 255, 252);
+
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 24px;
+    color: rgb(23, 123, 141);
+}
+
+.erasers-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 8px 0;
+}
+
+.erasers-container .button {
+    flex: 1;
+    margin: 0 4px;
+    border-radius: 16px;
+}
+
+.main {
+    display: flex;
 }
 
 .buttons-container {
     display: flex;
-    padding: 20px;
+    flex-direction: column;
+    margin: 10px;
 }
 
 .numbers-container {
@@ -23,7 +73,9 @@ body {
 
 .operators-container {
     display: flex;
-    flex-direction: column-reverse;
+    width: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .operators-container .button {
@@ -33,7 +85,6 @@ body {
 .operators-container .button:hover {
     background-color: rgb(253, 136, 181);
 }
-
 
 .button {
     /* flex:1; */
@@ -47,14 +98,4 @@ body {
 
 .button:hover {
     cursor: pointer;
-}
-
-.screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 240px;
-    height: 60px;
-    background-color: rgb(196, 255, 252);
-    border-radius: 10px;
 }
